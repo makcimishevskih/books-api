@@ -15,8 +15,8 @@ export const fetchBooks = createAsyncThunk<ResponseBooks, string, RejectValue>(
       .then((data) => {
         return data;
       })
-      .catch((message) => {
-        return rejectWithValue(message);
+      .catch((errorMessage) => {
+        return rejectWithValue(errorMessage);
       });
   },
 );
@@ -27,8 +27,8 @@ export const fetchMoreBooks = createAsyncThunk<Book[], string, RejectValue>(
       .then((data) => {
         return data.items;
       })
-      .catch((message) => {
-        return rejectWithValue(message ? message : 'Fetch error');
+      .catch((errorMessage) => {
+        return rejectWithValue(errorMessage ? errorMessage : 'Fetch error');
       });
   },
 );

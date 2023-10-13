@@ -49,5 +49,5 @@ export interface BooksState {
   books: Book[];
   totalBooks: number;
   status: Status;
-  message: string;
+  errorMessage: string;
 }

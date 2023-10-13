@@ -103,7 +103,7 @@ const initialState = {
   ],
   totalBooks: 0,
   status: 'idle',
-  message: '',
+  errorMessage: '',
 };
 
 const mockBooks = {
@@ -219,7 +219,7 @@ describe('booksReducer', () => {
       status: 'idle',
       books: mockBooks.items,
       totalBooks: mockBooks.totalItems,
-      message: '',
+      errorMessage: '',
     });
   });
   it('should change status with fetchBooks.rejected action', () => {
@@ -229,7 +229,7 @@ describe('booksReducer', () => {
     };
     const state = booksReducer(initialState, action);
 
-    expect(state.message).toEqual("Can't load a data");
+    expect(state.errorMessage).toEqual("Can't load a data");
   });
 
   // ADD MORE BOOKS
@@ -246,6 +246,6 @@ describe('booksReducer', () => {
     };
     const state = booksReducer(initialState, action);
 
-    expect(state.message).toEqual("Can't load a data");
+    expect(state.errorMessage).toEqual("Can't load a data");
   });
 });

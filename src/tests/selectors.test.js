@@ -17,7 +17,7 @@ describe('redux selectors', () => {
       books: [],
       totalBooks: 0,
       status: 'idle',
-      message: '',
+      errorMessage: '',
     };
 
     const result = booksSelector({ books });

@@ -25,7 +25,7 @@ const Home = () => {
   const [, setQueryParams] = useSearchParams();
   const dispatch = useAppDispatch();
 
-  const { books, totalBooks, status, message } = useAppSelector(booksSelector);
+  const { books, totalBooks, status, errorMessage } = useAppSelector(booksSelector);
   const { search, category, orderBy } = useAppSelector(searchSelector);
 
   const { offset, handleOffset, handleOffsetToValue } = usePagination(totalBooks);
@@ -34,6 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(thunk.fetchBooks(API_ENDPOINTS.books.createRoot(search, category, orderBy)));
+
     handleOffsetToValue(0);
 
     setQueryParams(`q=${search}&category=${category}&orderBy=${orderBy}`);
@@ -46,19 +47,19 @@ const Home = () => {
   }, [offset]);
 
   const isLoading = status === 'loading';
-  const isError = message ? message : '';
+  const isError = errorMessage ? errorMessage : '';
   const hasBooks = books && books.length !== 0 && totalBooks !== 0;
 
   return (
     <section className={css.home}>
       {isLoading && !isError && offset === 0 && <Loader size="xl" />}
       {!isLoading && !isError && <p className={css.home__booksCounter}>Found {hasBooks ? totalBooks : 0} results</p>}
-      {!isLoading && isError && <div className={css.home__error}>{message}</div>}
+      {!isLoading && isError && <div className={css.home__error}>{errorMessage}</div>}
 
       {!isError && hasBooks && <BooksList books={books} />}
 
       {hasBooks && (
-        <Button loaderColor="secondary" loading={!isLoading} className={css.home__moreBooksBtn} onClick={handleOffset}>
+        <Button loaderColor="secondary" loading={isLoading} className={css.home__moreBooksBtn} onClick={handleOffset}>
           Load more
         </Button>
       )}

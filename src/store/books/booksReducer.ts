@@ -7,7 +7,7 @@ const initialState = {
   books: [],
   totalBooks: 0,
   status: 'idle',
-  message: '',
+  errorMessage: '',
 } as BooksState;
 
 const booksSlice = createSlice({
@@ -18,7 +18,7 @@ const booksSlice = createSlice({
     builder
       .addCase(fetchBooks.pending, (state) => {
         state.status = 'loading';
-        state.message = '';
+        state.errorMessage = '';
       })
       .addCase(fetchBooks.fulfilled, (state, { payload }) => {
         state.status = 'idle';
@@ -27,11 +27,11 @@ const booksSlice = createSlice({
       })
       .addCase(fetchBooks.rejected, (state, { payload }) => {
         state.status = 'rejected';
-        state.message = payload ? payload : '';
+        state.errorMessage = payload ? payload : '';
       })
       .addCase(fetchMoreBooks.pending, (state) => {
         state.status = 'loading';
-        state.message = '';
+        state.errorMessage = '';
       })
       .addCase(fetchMoreBooks.fulfilled, (state, { payload }) => {
         state.status = 'idle';
@@ -40,7 +40,7 @@ const booksSlice = createSlice({
       })
       .addCase(fetchMoreBooks.rejected, (state, { payload }) => {
         state.status = 'rejected';
-        state.message = payload ? payload : '';
+        state.errorMessage = payload ? payload : '';
       });
   },
 });

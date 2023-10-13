@@ -4,14 +4,12 @@ import { Book } from 'store/config/types';
 
 export function getImage(currentBook: Book) {
   const imageToDisplay =
-    currentBook &&
-    (currentBook.volumeInfo.imageLinks?.large ||
-      currentBook.volumeInfo.imageLinks?.medium ||
-      currentBook.volumeInfo.imageLinks?.thumbnail ||
-      currentBook.volumeInfo.imageLinks?.extraLarge ||
-      currentBook.volumeInfo.imageLinks?.small ||
-      currentBook.volumeInfo.imageLinks?.smallThumbnail ||
-      noBook);
+    (currentBook && currentBook.volumeInfo.imageLinks?.medium) ||
+    currentBook.volumeInfo.imageLinks?.thumbnail ||
+    (currentBook && currentBook.volumeInfo.imageLinks?.large) ||
+    currentBook.volumeInfo.imageLinks?.small ||
+    currentBook.volumeInfo.imageLinks?.smallThumbnail ||
+    noBook;
 
   return imageToDisplay;
 }
