@@ -13,6 +13,7 @@
       background-color: rgb(245, 236, 236);
       @include flexbox(center, center);
       &__img {
+        align-self: start;
         width: 280px;
         height: 400px;
         box-shadow: $box-shadow-dark;
