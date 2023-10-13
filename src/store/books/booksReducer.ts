@@ -36,7 +36,6 @@ const booksSlice = createSlice({
       .addCase(fetchMoreBooks.fulfilled, (state, { payload }) => {
         state.status = 'idle';
         state.books.push(...payload);
-        console.log(state.books.length, payload.length);
       })
       .addCase(fetchMoreBooks.rejected, (state, { payload }) => {
         state.status = 'rejected';
