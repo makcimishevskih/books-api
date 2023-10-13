@@ -1,0 +1,34 @@
+@import "styles/forwarded.scss";
+
+.header {
+  min-height: $header-height;
+  color: $text-secondary;
+
+  padding: $space-m;
+
+  background-image: url("../../assets/wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+
+  .inactive {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include typo(40px);
+    text-shadow: 0 5px 5px black;
+
+    text-align: center;
+
+    color: $text-secondary;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .navigation {
+    margin-top: $space-xxxl;
+  }
+}

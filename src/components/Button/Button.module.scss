@@ -1,0 +1,49 @@
+@import "styles/forwarded";
+
+.button {
+  @include flexbox(center, center);
+  @include typo(18px, 600);
+  letter-spacing: 0.5px;
+
+  position: relative;
+
+  padding: $space-s $space-xxxl;
+
+  color: $text-secondary;
+  background-color: $button-primary-bg;
+
+  border: none;
+
+  &__loader {
+    position: absolute;
+    right: 0;
+  }
+
+  &.rounded {
+    border-radius: 50%;
+  }
+
+  &.rected {
+    padding: $space-s $space-s;
+  }
+
+  &:active {
+    background-color: $button-active;
+  }
+
+  &:disabled {
+    background-color: $text-primary;
+  }
+
+  &.loading {
+    background-color: $button-loading;
+
+    &.disabled {
+      background-color: $text-primary;
+    }
+  }
+
+  &:not([disabled]):hover {
+    background-color: $button-primary-bg-hover;
+  }
+}

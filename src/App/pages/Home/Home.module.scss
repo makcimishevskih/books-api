@@ -1,0 +1,46 @@
+@import "styles/forwarded.scss";
+
+.home {
+  padding: $space-m 0;
+  position: relative;
+
+  &__error {
+    margin: $space-m auto;
+    text-align: center;
+    font-size: 24px;
+    color: $error-message-color;
+  }
+
+  &__booksCounter {
+    margin-top: $space-xxl;
+
+    text-align: center;
+
+    @include typo(24px, 600);
+    color: $text-primary;
+  }
+  &__moreBooksBtn {
+    margin: $space-xxl auto 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: $text-secondary;
+  }
+
+  &__toTopArrow {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+
+    width: 70px;
+    height: 70px;
+
+    background-color: #cecdcd18;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      background-color: #ffffff;
+    }
+  }
+}

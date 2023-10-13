@@ -1,0 +1,67 @@
+@import "styles/forwarded.scss";
+
+.bookWrapper {
+  height: 100%;
+  .book {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+
+    &Info {
+      padding: 40px 80px;
+
+      background-color: rgb(245, 236, 236);
+
+      &__img {
+        min-width: 200px;
+        width: 100%;
+        box-shadow: $box-shadow-dark;
+      }
+    }
+
+    &Content {
+      position: relative;
+      padding: 40px;
+      @include flexbox(flex-start, center, $space-xl);
+      flex-direction: column;
+      &__categories {
+        color: $text-third;
+        text-decoration: underline;
+      }
+
+      &__title {
+        @include typo(20px, bold);
+      }
+
+      &__authors {
+        color: $text-third;
+      }
+
+      &__description {
+        padding: $space-xs $space-m;
+        width: 100%;
+        min-height: 200px;
+
+        border: 1px solid rgba(168, 168, 168, 0.705);
+        border-radius: 4px;
+      }
+      &__goBackBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        color: $text-secondary;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media (max-width: 786px) {
+  .bookWrapper {
+    .book {
+      @include flexbox(center, center, $space-xl);
+      flex-direction: column;
+      display: block;
+    }
+  }
+}

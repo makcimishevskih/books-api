@@ -1,0 +1,63 @@
+@import "styles/forwarded.scss";
+
+.card {
+  margin-top: $space-xxxl;
+
+  width: 300px;
+  height: 450px;
+
+  padding: 20px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+  background-color: $card-bg;
+  transition: box-shadow 0.1s ease-out;
+
+  &:hover {
+    box-shadow: $box-shadow-dark;
+  }
+
+  &__imgWrapper {
+    @include flexbox(center, center);
+    height: 65%;
+
+    background-color: $card-image-bg;
+  }
+
+  &__img {
+    width: 140px;
+    height: 200px;
+
+    object-fit: cover;
+    object-position: 50%;
+    box-shadow: $box-shadow-dark;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: $space-m;
+
+    &__category {
+      margin-top: $space-xs;
+
+      font-size: 18px;
+      color: $text-third;
+      text-decoration: underline;
+    }
+    &__name {
+      @include line-clamp(2);
+      @include typo(20px, bold);
+
+      color: $text-primary;
+      margin-top: $space-xs;
+    }
+
+    &__contentSlot {
+      @include line-clamp(2);
+      font-size: 18px;
+      color: $text-third;
+    }
+  }
+}

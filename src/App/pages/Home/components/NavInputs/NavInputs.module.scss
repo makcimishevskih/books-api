@@ -1,0 +1,17 @@
+@import "styles/forwarded.scss";
+
+.navInputs {
+  margin-top: $space-xxxl;
+
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 20px;
+    margin-top: $space-l;
+  }
+
+  &__search {
+    @include flexbox(center, space-between, $space-s);
+  }
+}

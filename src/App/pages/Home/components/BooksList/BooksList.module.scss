@@ -1,0 +1,10 @@
+@import "styles/forwarded.scss";
+
+.booksList {
+  @include flexbox(center, space-evenly, $space-xxl);
+  flex-wrap: wrap;
+
+  margin-top: $space-l;
+
+  font-size: 24px;
+}

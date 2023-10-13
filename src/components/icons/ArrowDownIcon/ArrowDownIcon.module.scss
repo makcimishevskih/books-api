@@ -1,0 +1,15 @@
+@import "styles/vars.scss";
+
+.arrow {
+  cursor: pointer;
+
+  .fill_primary {
+    fill: $input-bg;
+  }
+  .fill_secondary {
+    fill: $input-text;
+  }
+  .fill_third {
+    fill: $button-primary-bg;
+  }
+}

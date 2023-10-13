@@ -1,0 +1,50 @@
+@import "styles/forwarded.scss";
+
+.wrapperDropDown {
+  position: relative;
+
+  color: $text-primary;
+
+  &.s {
+    max-width: 400px;
+  }
+  &.m {
+    max-width: 600px;
+  }
+  &.l {
+    max-width: 100%;
+  }
+  .list {
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+    left: 0;
+
+    color: $text-primary;
+
+    min-width: 100%;
+
+    margin-top: $space-xxs;
+
+    background-color: $dropdown-options-bg;
+    box-shadow: $box-shadow-dark;
+
+    .item {
+      @include typo(16px);
+
+      padding: $space-s $space-xs;
+
+      transition: color 0.1s ease;
+
+      cursor: pointer;
+
+      &_checked {
+        color: $button-primary-bg;
+      }
+
+      &:hover {
+        color: $text-third;
+      }
+    }
+  }
+}
